@@ -1,4 +1,9 @@
-import { ContactItem, ContactDelete, FormText } from './ContactListItem.styled';
+import {
+  ContactItem,
+  ContactItemText,
+  ContactDelete,
+  FormText,
+} from './ContactListItem.styled';
 
 export const ContactListItem = ({
   contact: { firstName, tel, id },
@@ -7,8 +12,10 @@ export const ContactListItem = ({
   return (
     <>
       <ContactItem>
-        <FormText>{firstName}:</FormText>
-        <FormText>{tel}</FormText>
+        <ContactItemText>
+          <FormText>{firstName}:</FormText>
+          <FormText>{tel}</FormText>
+        </ContactItemText>
 
         <ContactDelete type="button" onClick={() => onDeleteContact(id)}>
           Delete

@@ -14,19 +14,13 @@ const nameRegExp = /^(([a-zA-Z' -]{1,80})|([а-яА-ЯЁёІіЇїҐґЄє' -]{1
 
 const ContactSchema = Yup.object().shape({
   firstName: Yup.string()
-    .matches(
-      nameRegExp,
-      'Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz.'
-    )
+    .matches(nameRegExp, 'The name must contain only letters')
     .min(2, 'Too Short!')
     .required('Required!'),
   tel: Yup.string()
-    .matches(
-      phoneRegExp,
-      'Phone number must be digits and can contain dashes, parentheses and can start with +'
-    )
-    .min(16, 'Too short!')
-    .max(19, 'Too long!')
+    .matches(phoneRegExp, 'Enter the number in the format "XXX-XX-XX"')
+    .min(7, 'Too short! XXX-XX-XX')
+    .max(9, 'Too long! XXX-XX-XX')
     .required('Required!'),
 });
 
@@ -50,12 +44,7 @@ export const ContactForm = ({ onAddContact }) => {
           <ErrMsg name="firstName" component="div" />
 
           <FormLabel htmlFor="tel">Number</FormLabel>
-          <InputForm
-            id="tel"
-            name="tel"
-            placeholder="+XX (XXX) XXX-XX-XX"
-            type="tel"
-          />
+          <InputForm id="tel" name="tel" placeholder="XXX-XX-XX" type="tel" />
           <ErrMsg name="tel" component="div" />
 
           <AddContact type="submit">Add contact</AddContact>

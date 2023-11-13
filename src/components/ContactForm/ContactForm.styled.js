@@ -45,6 +45,7 @@ export const InputForm = styled(Field)`
 
 export const AddContact = styled.button`
   padding: ${p => p.theme.spacing(2)};
+  margin-top: ${p => p.theme.spacing(4)};
   font: inherit;
   border-radius: ${props => props.theme.radii.sm};
   border: 2px solid ${props => props.theme.colors.backgroundBorder};

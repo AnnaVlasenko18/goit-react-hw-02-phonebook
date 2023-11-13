@@ -19,7 +19,7 @@ export const Container = styled.div`
   border: 2px solid ${props => props.theme.colors.backgroundBorder};
   border-radius: ${props => props.theme.radii.sm};
   width: 500px;
-  height: 700px;
+  min-height: 700px;
   padding: ${props => props.theme.spacing(4)};
 `;
 
